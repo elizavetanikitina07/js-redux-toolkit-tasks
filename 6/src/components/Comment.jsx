@@ -2,9 +2,15 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const Comment = ({ commentId }) => {
-  // BEGIN (write your solution here)
+  const comment = useSelector((state) =>
+    state.commentsReducer.entities[commentId]);
 
-  // END
+  const author = useSelector((state) => {
+    const authorId = typeof comment?.author === 'object' && comment.author !== null
+      ? comment.author.id
+      : comment?.author;
+    return state.usersReducer.entities[authorId];
+  });
 
   if (!author || !comment) {
     return null;

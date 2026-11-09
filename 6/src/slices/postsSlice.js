@@ -10,9 +10,8 @@ const postsSlice = createSlice({
   initialState,
   reducers: {
     setPosts(state, { payload }) {
-      // BEGIN (write your solution here)
-
-      // END
+      state.ids = payload.ids;
+      state.entities = payload.entities;
     },
   },
 });

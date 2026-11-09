@@ -6,9 +6,7 @@ import routes from '../routes.js';
 
 import { actions as usersActions } from '../slices/usersSlice.js';
 import { actions as postsActions } from '../slices/postsSlice.js';
-// BEGIN (write your solution here)
-
-// END
+import { actions as commentsActions } from '../slices/commentsSlice.js';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -24,9 +22,7 @@ const App = () => {
 
       dispatch(usersActions.setUsers(users));
       dispatch(postsActions.setPosts(posts));
-      // BEGIN (write your solution here)
-
-      // END
+      dispatch(commentsActions.setComments(comments));
     };
 
     fetchData();

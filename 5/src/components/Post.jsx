@@ -14,7 +14,9 @@ const Post = ({ post }) => {
         {`${post.body} - ${author.name}`}
       </div>
       <div className="card-body">
-        {post.comments.map((commentId) => <Comment key={commentId} commentId={commentId} />)}
+        {post.comments.map((commentId) => (
+          <Comment key={commentId} commentId={commentId} />
+        ))}
       </div>
     </div>
   );

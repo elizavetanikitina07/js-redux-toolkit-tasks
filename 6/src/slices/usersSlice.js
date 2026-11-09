@@ -10,9 +10,8 @@ const usersSlice = createSlice({
   initialState,
   reducers: {
     setUsers(state, { payload }) {
-      const { entities, ids } = payload;
-      state.entities = entities;
-      state.ids = ids;
+      state.ids = payload.ids;
+      state.entities = payload.entities;
     },
   },
 });

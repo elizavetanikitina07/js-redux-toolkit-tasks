@@ -4,10 +4,15 @@ import Comment from './Comment.jsx';
 
 const Post = ({ post }) => {
   const author = useSelector((state) => {
-    // BEGIN (write your solution here)
-
-    // END
+    const authorId = typeof post.author === 'object' && post.author !== null
+      ? post.author.id
+      : post.author;
+    return state.usersReducer.entities[authorId];
   });
+
+  if (!author) {
+    return null;
+  }
 
   return (
     <div className="card">
@@ -15,7 +20,12 @@ const Post = ({ post }) => {
         {`${post.body} - ${author.name}`}
       </div>
       <div className="card-body">
-        {post.comments.map((commentId) => <Comment key={commentId} commentId={commentId} />)}
+        {post.comments.map((commentId) => {
+          const id = typeof commentId === 'object' && commentId !== null
+            ? commentId.id
+            : commentId;
+          return <Comment key={id} commentId={id} />;
+        })}
       </div>
     </div>
   );

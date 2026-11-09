@@ -10,9 +10,8 @@ const commentsSlice = createSlice({
   initialState,
   reducers: {
     setComments(state, { payload }) {
-      // BEGIN (write your solution here)
-
-      // END
+      state.ids = payload.ids;
+      state.entities = payload.entities;
     },
   },
 });
